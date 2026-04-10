@@ -1,27 +1,62 @@
 # 金渐成.skill
 
-> *「投资的首要前提是保值，其次才是增值。」*
+> *“投资的首要前提是保值，其次才是增值。”*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Skill](https://img.shields.io/badge/Codex-Skill-blue)](SKILL.md)
-[![Corpus](https://img.shields.io/badge/Local%20Corpus-404%20Articles-green)](references/sources/local-corpus-notes.md)
+[![Market Focus](https://img.shields.io/badge/Focus-US%20Stocks%20%26%20ETFs-green)](#what-you-can-ask)
 
-**金渐成的美股判断操作系统。不是文章摘抄，是可运行的顾问框架。**
+**一个偏实战的美股判断框架。**
 
-基于 404 篇本地历史文章语料，提炼出一套偏实战的美股判断方法：
+不是喊单机器人，也不是语录合集。
+它更像一个成熟投资顾问的思考模板，专门用来判断：
 
-- 如何区分“倒车接人”和逻辑破坏
-- 如何给科技龙头和宽基 ETF 设买卖节点
-- 如何把高波动收益搬到更防守的底盘里
-- 如何用现金流、仓位和分批操作穿越猴市与大跌
+- 现在更适合买什么，不该买什么
+- 某只美股或 ETF 该等回调、分批接，还是逢高减
+- 当前更适合进攻、均衡还是防守
+- 涨出来的利润该怎么往更稳的底盘上搬
 
-[效果示例](#效果示例) · [安装](#安装) · [蒸馏了什么](#蒸馏了什么) · [调研来源](#调研来源)
+[What You Can Ask](#what-you-can-ask) · [Example Outputs](#example-outputs) · [Installation](#installation) · [What Was Distilled](#what-was-distilled) · [Boundaries](#boundaries)
 
 ---
 
-## 效果示例
+## Why This Skill
 
-### 问：纳指已经从高点跌了 12%，QQQ 现在能抄吗？
+这个 Skill 的核心不是“像金渐成说话”，而是“像金渐成那样判断”。
+
+它默认站在几个前提上：
+
+- 风险控制先于收益追逐
+- 主线科技龙头优先，宽基 ETF 是默认选项
+- 基本面没坏的大跌，更像“倒车接人”
+- 用预设节点和仓位管理替代情绪化操作
+- 科技股负责进攻，利润要学会迁移到更稳的底盘
+
+所以它最适合回答的，不是空泛的市场感想，而是具体的策略问题。
+
+## What You Can Ask
+
+你可以直接这样问：
+
+- 现在的 QQQ / SPY 适合分批接，还是继续等？
+- 英伟达、微软、Meta 这种位置该加仓、回补还是先别动？
+- 我已经有浮盈了，现在是该减仓腾现金，还是继续拿？
+- 当前市场更适合进攻、均衡还是防守？
+- 如果这轮是震荡市，该怎么安排科技龙头、宽基和防守资产？
+
+如果你给得更完整，回答会更准。最好带上：
+
+- 标的
+- 当前价
+- 持仓成本
+- 仓位占比
+- 你是做中线、长线，还是只是想等回调上车
+
+---
+
+## Example Outputs
+
+### 1. QQQ 跌了不少，现在能不能接？
 
 ```text
 金渐成 ❯
@@ -38,20 +73,16 @@ QQQ 这种宽基，本来就是默认选项。
 我更在意的不是你现在敢不敢买，
 而是你买完再跌 5%-8% 还有没有子弹。
 没有，就先别逞强。
-
-一句话：可以分批，不要满仓，前提是主线没坏。
 ```
 
-> 运用了 **基本面未坏 = 下跌机会**、**宽基默认选项**、**现金流先于抄底资格**。
-
-### 问：英伟达涨太多了，要不要减仓？
+### 2. 英伟达涨了很多，要不要减仓？
 
 ```text
 金渐成 ❯
-要看你现在是重仓浮盈，还是刚追进去没多久。
+要看你现在是低位浮盈很厚，还是刚追进去没多久。
 
 如果你是低位拿上来的，而且仓位已经大到影响睡眠，
-那我一般会建议逢高减一部分，把成本往下打，
+那我会偏向逢高减一部分，把成本往下打，
 给未来的震荡和回调腾空间。
 
 主线龙头我不会轻易看空，
@@ -62,9 +93,7 @@ QQQ 这种宽基，本来就是默认选项。
 而是你一点不减，回头大跌时既没现金也没胆子。
 ```
 
-> 运用了 **先把成本打下来**、**利润要会搬家**、**仓位服务于执行力**。
-
-### 问：我只有 50 万美元以内的资金，该怎么配美股？
+### 3. 小资金该怎么配美股？
 
 ```text
 金渐成 ❯
@@ -82,17 +111,15 @@ QQQ 这种宽基，本来就是默认选项。
 这套组合，比你东一榔头西一棒子强得多。
 ```
 
-> 运用了 **好钢用在刀刃上**、**主线科技 + 宽基底仓**、**资金体量约束策略**。
-
 ---
 
-## 安装
+## Installation
 
 ```bash
 npx skills add ting2tao/jinjiancheng-skill
 ```
 
-然后在 Codex / Claude Code 里这样用：
+然后在 Codex / Claude Code 里这样触发：
 
 ```text
 用金渐成的视角看看现在的美股策略
@@ -102,7 +129,7 @@ npx skills add ting2tao/jinjiancheng-skill
 
 ---
 
-## 蒸馏了什么
+## What Was Distilled
 
 ### 6 个核心心智模型
 
@@ -128,18 +155,29 @@ npx skills add ting2tao/jinjiancheng-skill
 
 ### 表达 DNA
 
-- **句式**：短句、先结论后原因、少废话。
-- **词汇**：倒车接人、关灯吃面、好钢用在刀刃上、弹药、节点、底盘。
-- **语气**：直接，有判断，不装玄。
-- **节奏**：先市场阶段，再资产角色，再动作建议，再失效条件。
+- **句式**：短句、先结论后原因、少废话
+- **词汇**：倒车接人、关灯吃面、好钢用在刀刃上、弹药、节点、底盘
+- **语气**：直接，有判断，不装玄
+- **节奏**：先市场阶段，再资产角色，再动作建议，再失效条件
 
 ---
 
-## 调研来源
+## Boundaries
 
-本 Skill 不依赖公网搜索，直接使用用户提供的本地公众号历史文章语料。
+这个 Skill 有明确边界：
 
-研究笔记在 [`references/research/`](references/research/)：
+- 没有实时价格和持仓信息时，只给条件式建议，不装作知道今天的精确买卖点
+- 不做超短线、盘口博弈、复杂衍生品设计
+- 不把历史节点当成实时喊单价格复读
+- 不鼓励满仓、情绪化补仓和重杠杆
+
+一句话：它擅长的是高质量判断框架，不是替你假装预测每一分钟的市场。
+
+---
+
+## Research Notes
+
+如果你想看更细的拆解，研究笔记在 [`references/research/`](references/research/)：
 
 - [`01-investment-framework.md`](references/research/01-investment-framework.md)
 - [`02-buy-sell-signals.md`](references/research/02-buy-sell-signals.md)
@@ -147,11 +185,9 @@ npx skills add ting2tao/jinjiancheng-skill
 - [`04-asset-allocation.md`](references/research/04-asset-allocation.md)
 - [`05-boundaries-and-failure-modes.md`](references/research/05-boundaries-and-failure-modes.md)
 
-语料说明在 [`references/sources/local-corpus-notes.md`](references/sources/local-corpus-notes.md)。
-
 ---
 
-## 仓库结构
+## Repo Structure
 
 ```text
 jinjiancheng-skill/
@@ -173,8 +209,6 @@ jinjiancheng-skill/
 
 ---
 
-## 许可证
+## License
 
-MIT。
-
-随便用，随便改，但别把历史节点当实时行情喊单。
+MIT.
