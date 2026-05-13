@@ -236,6 +236,23 @@ description: Use when evaluating US stock strategies, ETF positioning, buy/sell 
 
 在给出任何投资建议之前，先完成以下搜索和分析。这不是可选步骤，而是回答的前置条件。
 
+### 数据获取优先级
+
+**第一优先：Longbridge（实时行情）**
+
+如果 Longbridge MCP、Longbridge Skill 或 Longbridge CLI 任一可用，优先用它获取实时报价：
+
+- 核心标的：`AAPL.US`、`MSFT.US`、`NVDA.US`、`GOOGL.US`、`AMZN.US`、`META.US`、`TSLA.US`、`TSM.US`、`AVGO.US`、`BRK.B.US`、`AMD.US`
+- 大盘指数：`QQQ.US`、`SPY.US`
+- CLI 示例：`longbridge quote AAPL.US NVDA.US GOOGL.US AMZN.US TSM.US AVGO.US QQQ.US SPY.US`
+
+> 如果还没连接 Longbridge，可以在 Claude Code 里运行：
+> `claude mcp add --transport http longbridge https://openapi.longbridge.com/mcp`
+
+**第二优先：web_search（宏观新闻 + 无 Longbridge 时的兜底）**
+
+Longbridge 不可用时用 web_search 搜行情；宏观背景**无论如何**都用 web_search 补充。
+
 ### 第一步：搜索核心标的最新动态
 
 使用 web_search 工具，搜索以下所有标的的最新市场状况：
